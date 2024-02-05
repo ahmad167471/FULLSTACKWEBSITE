@@ -2,6 +2,8 @@ import express from "express";
 import bodyParser from "body-parser";
 const app= express();
 const port= 3000;
+// const path = require('path');
+
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -26,6 +28,8 @@ app.get("/service",(req,res)=>{
 app.get("/contact",(req,res)=>{
     res.render("login.ejs")
 })
+// In your server file
+
 app.listen(port,()=>{
     console.log(`server is running on ${port}`)
 });
