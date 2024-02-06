@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "vite",
-    "nodemon": "nodemon index.js"
+"nodemon": "nodemon run index.js"
   },
   "author": "Shaquib ahmad",
   "license": "ISC",

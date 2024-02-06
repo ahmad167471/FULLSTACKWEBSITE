@@ -29,7 +29,6 @@ app.get("/contact",(req,res)=>{
     res.render("login.ejs")
 })
 // In your server file
-
 app.listen(port,()=>{
     console.log(`server is running on ${port}`)
 });
