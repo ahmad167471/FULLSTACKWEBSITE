@@ -1,13 +1,26 @@
+
+
+// Large screen search functionality
 const search = document.getElementById("search");
 const btn = document.getElementById("btn");
 const totalfoods = document.getElementById("totalfoods");
 
 btn.addEventListener("click", () => {
     const searchText = search.value.trim();
-    getfoodlist(searchText);
+    getFoodList(searchText, totalfoods);
 });
 
-function getfoodlist(searchText) {
+// Mobile menu search functionality
+const mobileSearch = document.getElementById("searchMobile");
+const mobileBtn = document.getElementById("btnMobile");
+const mobileTotalFoods = document.getElementById("totalfoods");
+
+mobileBtn.addEventListener("click", () => {
+    const searchText = mobileSearch.value.trim();
+    getFoodList(searchText, mobileTotalFoods);
+});
+
+function getFoodList(searchText, targetElement) {
     fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchText}`)
         .then(response => response.json())
         .then(data => {
@@ -17,16 +30,16 @@ function getfoodlist(searchText) {
                     html += `
                         <div class="foodcard">
                             <img src="${meal.strMealThumb}" alt="" class="foods">
-                            <h2>${meal.strMeal}</h2>
+                            <h2 id="mealTitle">${meal.strMeal}</h2>
                             <button class="order">Order</button>
                         </div>`;
                 });
-                totalfoods.classList.remove("notFound");
+                targetElement.classList.remove("notFound");
             } else {
                 html = "Sorry, we didn't find any meal!";
-                totalfoods.classList.add("notFound");
+                targetElement.classList.add("notFound");
             }
 
-            totalfoods.innerHTML = html;
+            targetElement.innerHTML = html;
         });
 };

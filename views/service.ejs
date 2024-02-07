@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="/styles/input.css">
   <script src="https://cdn.tailwindcss.com"></script>
+
 
 <!-- fonts links  -->
 <script src="https://kit.fontawesome.com/d12261aa19.js" crossorigin="anonymous"></script>
@@ -15,97 +18,117 @@
 
 
   <!-- Navigation for Large Screens -->
-  <nav class=" hidden md:block mb-0   space-x-4 ">
-
-<div class="items-start ml-5 inline-block mt-6">
-    <button class="text-black text-4xl font-bold capitalize"><a href="#" >
-        ShikuDelights
-      </a></button>
+  <header class="hidden lg:block">
+    <nav class=" flex flex-row h-24 w-full   items-center" style="background-color: #6969b7;
+    opacity: 0.8;
+    background-image: radial-gradient(#444cf7 0.5px, #6969b7 0.5px);
+    background-size: 10px 10px;
+    ">
+    
+    <!-- logo area  -->
+    <div>
+    <div  class=" text-4xl xl:text-5xl bold text-white ml-10 inline-block ">
+    ShikuDelights
     </div>
-
-<!-- search bar  -->
-
-
-  <div class="float-right inline-block py-6 px-6 font-semibold  text-3xl ">
-    <a href="#" class=" mx-5 text-cyan-800">Home</a>
-    <a href="#" class=" mx-5 text-cyan-800">About</a>
-    <a href="#" class=" mx-5 text-cyan-800">Contact</a>
-    <!-- <div class="group relative">
-    </div> -->
-</div>
-
-<div id="input-Search" class="flex-flex-row  mt-5 mb-5 space-y-5 space-x-2 ">
-    <label for="Search"></label>
-  
-    <input type="search" class="pl-1   text-2xl  rounded shadow-md shadow-slate-600 hover:scale-105 hover:duration-300 capitalize " placeholder="Search Here" name="Search" id="search"
-
-   
-
-     />
-     <button id="btn" class="btn">
-        <span class="material-symbols-outlined  " style="font-size: 50px;"  >
-          search
-          </span>
-      </button>
-</div>
-
-  </nav>
+    
+    <!-- icon  -->
+    <span class="material-symbols-outlined lg:font-semibold text-4xl  xl:font-bold  xl:text-5xl text-red-800 ml-7" >
+        fastfood
+        </span>
+    </div>
+    
+    
+    <!-- search bar  -->
+    
+    
+    <div id="input-Search" class="flex flex-row space-x-5 xl:space-x-10  ">
+        <label for="searchMobile"></label>
+        <input type="search" class="pl-1 w-[220px] 2xl:w-[350px] 2xl:h-[45px] text-xl rounded shadow-md shadow-slate-600 hover:scale-105 hover:duration-300 capitalize" placeholder="Search Here" name="searchMobile" id="searchMobile" />
+        </div>
+        <button id="btnMobile" class="btn ">
+            <span class="material-symbols-outlined " style="font-size: 40px;">
+                search
+            </span>
+          </button>
+    
+    
+    
+       <!-- Navigation Links (Hidden by Defawhite) -->
+      <div id="links" class=" flex flex-row justify-between space-x-5  lg:ml-28 pr-5  font-semibold">
+        <a href="/Home" class="text-white text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">Home</a>
+        <a href="/about" class="text-white text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">About</a>
+        <a href="/contact" class="text-white text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">Contact</a>
+       
+    
+      </div> 
+    
+    </nav>
+    </header>
   
 
 
 <!-- mobile menu hamburger  -->
 
-<nav id="mobile-menu" class="bg-body-tertiary p-2 md:hidden   w-full">
-
-    <div class="container  flex flex-row justify-between">
-      <!-- Logo -->
-      <button class="text-black text-4xl font-bold capitalize"><a href="#" >
-        ShikuDelights
-      </a></button>
-     
-     
-      <!-- Hamburger Icon for Mobile -->
-      <div class="lg:hidden">
-        <button id="toggle-menu" class="text-black focus:outline-none">
-          <span class="material-symbols-outlined text-3xl font-semibold">
-            menu
-            </span>
-        </button>
-      </div>
-    </div>
+<header class="lg:hidden block">
+  <nav class=" flex flex-col  w-full   items-center" style="background-color: #6969b7;
+  opacity: 0.8;
+  background-image: radial-gradient(#444cf7 0.5px, #6969b7 0.5px);
+  background-size: 10px 10px;
+  ">
   
-      <!-- Navigation Links (Hidden by Default) -->
-      <div id="hidden-links" class="lg:hidden flex flex-col  items-center text-center  space-y-2 mt-3 font-semibold">
-        <a href="#" class="text-cyan-500 text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">Home</a>
-        <a href="#" class="text-cyan-500 text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">About</a>
-        <a href="#" class="text-cyan-500 text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">Contact</a>
-        <div class="group relative">
-
-        </div>
+  <!-- logo area  -->
+  <div class="flex flex-row justify-around space-x-4 sm:flex sm:flex-row sm:items-start sm:justify- sm:space-x-32 ">
+  <div  class="text-2xl font-semibold  md:text-4xl xl:text-5xl md:font-semibold text-white ml-10 inline-block ">
+  ShikuDelights
+  </div>
   
-<!-- search bar  -->
-<div id="input-Search" class="flex-flex-col  md:hidden mt-5 mb-5 space-y-5 space-x-2 ">
-        <label for="Search"></label>
-      
-        <input type="search" class="pl-1  w-[220px] text-xl  rounded shadow-md shadow-slate-600 hover:scale-105 hover:duration-300 capitalize " placeholder="Search Here" name="Search" id="search"
 
-       
 
-         />
-         <button id="btn" class="btn">
-            <span class="material-symbols-outlined  " style="font-size: 30px;"  >
-              search
-              </span>
-          </button>
+  <!-- icon  -->
+  <span class="material-symbols-outlined font-ligh text-2xl  text-red-800 ml-4" >
+      fastfood
+      </span>
+
+  
+   <!-- Hamburger Icon for Mobile -->
+ <div class="lg:hidden">
+  <button id="toggle-menu" class="text-black focus:outline-none">
+    <span class="material-symbols-outlined text-3xl font-semibold">
+      menu
+      </span>
+  </button>
 </div>
-    
+</div>
+ <!-- Navigation Links (Hidden by Defawhite) -->
+   
+
+  <div id="hidden-links" class="lg:hidden flex flex-col  items-center text-center  space-y-2 mt-3 font-semibold">
+    <a href="/Home" class="text-white text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">Home</a>
+    <a href="/about" class="text-white text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">About</a>
+    <a href="/contact" class="text-white text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">Contact</a>
+
+  <!-- search bar  -->
+  
+  
+  <div id="input-Search" class="flex flex-row space-x-5 xl:space-x-10  ">
+      <label for="search"></label>
+      <input type="search" class="pl-1 w-[220px] 2xl:w-[350px] 2xl:h-[45px] text-xl rounded shadow-md shadow-slate-600 hover:scale-105 hover:duration-300 capitalize" placeholder="Search Here" name="search" id="search" />
       </div>
-    </div>
-</nav>
+      <button id="btn" class="btn ">
+          <span class="material-symbols-outlined " style="font-size: 40px;">
+              search
+          </span>
+        </button>
+  
+  
+  
+    
+  </nav>
+  </header>
 
 
 
-<div id="totalfoods" class="min-h-screen w-full mt-10 mb-10 items-center grid grid-cols-1 md:grid md:grid-cols-3 lg:grid lg:grid-cols-4 gap-4 px-3">
+<div id="totalfoods" class="min-h-screen w-full mt-10 mb-10 items-center grid grid-cols-1 sm:grid sm:grid-cols-2 md:grid md:grid-cols-3 lg:grid lg:grid-cols-4 gap-4 px-3">
     <!-- totalfoods list using js inside js code there is html code for this one  -->
 </div>
 

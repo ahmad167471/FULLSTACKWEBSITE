@@ -27,3 +27,18 @@
     object-fit: cover;
   }
   
+/* service section  */
+/* food items  */
+
+#mealTitle{
+  font-size: 30px;
+text-align: center;
+}
+.order{
+  height: 50px;
+  min-width: 50px;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+}

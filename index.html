@@ -12,7 +12,21 @@
 </head>
 <body>
 
+<style>
 
+  #mealTitle{
+    font-size: 30px;
+  text-align: center;
+  }
+  .order{
+    height: 50px;
+    min-width: 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+  }
+</style>
 
   <!-- Navigation for Large Screens -->
   <nav class=" hidden md:block mb-0   space-x-4 ">
@@ -23,7 +37,6 @@
       </a></button>
     </div>
 
-<!-- search bar  -->
 
 
   <div class="float-right inline-block py-6 px-6 font-semibold  text-3xl ">
@@ -34,24 +47,24 @@
     </div> -->
 </div>
 
+
+<!-- search bar  -->
+
 <div id="input-Search" class="flex-flex-row  mt-5 mb-5 space-y-5 space-x-2 ">
     <label for="Search"></label>
   
-    <input type="search" class="pl-1   text-2xl  rounded shadow-md shadow-slate-600 hover:scale-105 hover:duration-300 capitalize " placeholder="Search Here" name="Search" id="search"
-
-   
-
+    <input type="search" class="pl-1   text-2xl  rounded shadow-md shadow-slate-600 hover:scale-105 hover:duration-300 capitalize focus:outline-offset-4" placeholder="Search Here" name="Search" id="search"
      />
+ 
      <button id="btn" class="btn">
         <span class="material-symbols-outlined  " style="font-size: 50px;"  >
           search
           </span>
       </button>
-</div>
+</div> 
 
   </nav>
-  
-
+   <!-- larger screen navBar ends here  -->
 
 <!-- mobile menu hamburger  -->
 
@@ -82,30 +95,25 @@
         <div class="group relative">
 
         </div>
-  
-<!-- search bar  -->
-<div id="input-Search" class="flex-flex-col  md:hidden mt-5 mb-5 space-y-5 space-x-2 ">
-        <label for="Search"></label>
-      
-        <input type="search" class="pl-1  w-[220px] text-xl  rounded shadow-md shadow-slate-600 hover:scale-105 hover:duration-300 capitalize " placeholder="Search Here" name="Search" id="search"
 
-       
-
-         />
-         <button id="btn" class="btn">
-            <span class="material-symbols-outlined  " style="font-size: 30px;"  >
-              search
-              </span>
-          </button>
+<div id="input-Search" class="flex flex-col md:hidden mt-5 mb-5 space-y-5 space-x-2">
+  <label for="searchMobile"></label>
+  <input type="search" class="pl-1 w-[220px] text-xl rounded shadow-md shadow-slate-600 hover:scale-105 hover:duration-300 capitalize" placeholder="Search Here" name="searchMobile" id="searchMobile" />
+  <button id="btnMobile" class="btn">
+      <span class="material-symbols-outlined" style="font-size: 30px;">
+          search
+      </span>
+  </button>
 </div>
-    
+
+
       </div>
     </div>
 </nav>
 
 
 
-<div id="totalfoods" class="min-h-screen w-full mt-10 mb-10 items-center grid grid-cols-1 md:grid md:grid-cols-3 lg:grid lg:grid-cols-4 gap-4 px-3">
+<div id="totalfoods" class="min-h-screen w-full mt-10 mb-10 items-center grid grid-cols-1 md:grid md:grid-cols-3 lg:grid lg:grid-cols-4 gap-4 px-3 ">
     <!-- totalfoods list using js inside js code there is html code for this one  -->
 </div>
 
