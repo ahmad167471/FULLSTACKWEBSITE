@@ -1,120 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-</head>
-
-<body>
-    
-<!-- header section  -->
-
-<!-- nav bar  -->
-<header class="hidden md:block">
-<nav class=" flex flex-row h-24 w-full   items-center" style="background-color: #6969b7;
-opacity: 0.8;
-background-image: radial-gradient(#444cf7 0.5px, #6969b7 0.5px);
-background-size: 10px 10px;
-">
-
-<!-- logo area  -->
-<div>
-<div  class=" text-4xl xl:text-5xl bold text-white ml-10 inline-block ">
-ShikuDelights
-</div>
-
-<!-- icon  -->
-<span class="material-symbols-outlined lg:font-semibold text-4xl  xl:font-bold  xl:text-5xl text-red-800 ml-7" >
-    fastfood
-    </span>
-</div>
 
 
-<!-- search bar  -->
+// Large screen search functionality
+const search = document.getElementById("search");
+const btn = document.getElementById("btn");
+const totalfoods = document.getElementById("totalfoods");
 
+btn.addEventListener("click", () => {
+    const searchText = search.value.trim();
+    getFoodList(searchText, totalfoods);
+});
 
-<div id="input-Search" class="flex flex-row space-x-5 xl:space-x-10  ">
-    <label for="searchMobile"></label>
-    <input type="search" class="pl-1 w-[220px] 2xl:w-[350px] 2xl:h-[45px] text-xl rounded shadow-md shadow-slate-600 hover:scale-105 hover:duration-300 capitalize" placeholder="Search Here" name="searchMobile" id="searchMobile" />
-    </div>
-    <button id="btnMobile" class="btn ">
-        <span class="material-symbols-outlined " style="font-size: 40px;">
-            search
-        </span>
-      </button>
+// Mobile menu search functionality
+const mobileSearch = document.getElementById("searchMobile");
+const mobileBtn = document.getElementById("btnMobile");
+const mobileTotalFoods = document.getElementById("totalfoods");
+
+mobileBtn.addEventListener("click", () => {
+    const searchText = mobileSearch.value.trim();
+    getFoodList(searchText, mobileTotalFoods);
+});
+
+function getFoodList(searchText, targetElement) {
+    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchText}`)
+        .then(response => response.json())
+        .then(data => {
+            let html = "";
+            if (data.meals) {
+                data.meals.forEach((meal) => {
+                    html += `
+                        <div class="foodcard">
+                            <img src="${meal.strMealThumb}" alt="" class="foods">
+                            <h2 id="mealTitle">${meal.strMeal}</h2>
+                            <button class="order">Order</button>
+                        </div>`;
+                });
+                targetElement.classList.remove("notFound");
+            } else {
+                html = "Sorry, we didn't find any meal!";
+                targetElement.classList.add("notFound");
+            }
+
+            targetElement.innerHTML = html;
+        });
+};
 
 
 
-   <!-- Navigation Links (Hidden by Defawhite) -->
-  <div id="hidden-links" class=" flex flex-row justify-between space-x-5  lg:ml-28 pr-5  font-semibold">
-    <a href="#" class="text-white text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">Home</a>
-    <a href="#" class="text-white text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">About</a>
-    <a href="#" class="text-white text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">Contact</a>
-   
-
- <!-- <div id="input-Search" class="flex flex-row   ">
-<label for="searchMobile"></label>
-<input type="search" class="pl-1 w-[220px] text-xl rounded shadow-md shadow-slate-600 hover:scale-105 hover:duration-300 capitalize" placeholder="Search Here" name="searchMobile" id="searchMobile" />
-<button id="btnMobile" class="btn">
-  <span class="material-symbols-outlined" style="font-size: 30px;">
-      search
-  </span>
-</button>
-</div>  -->
 
 
-  </div> 
 
-</nav>
-</header>
+// Large screen search functionality
+const search = document.getElementById("search");
+const btn = document.getElementById("btn");
+const totalfoods = document.getElementById("totalfoods");
 
-<nav id="mobile-menu" class="bg-body-tertiary lg:hidden block p-2    w-full">
+btn.addEventListener("click", () => {
+    const searchText = search.value.trim();
+    getFoodList(searchText, totalfoods);
+});
 
-    <div class="container  flex flex-row justify-between">
-      <!-- Logo -->
-      <button class="text-black text-4xl font-bold capitalize"><a href="#" >
-        ShikuDelights
-      </a></button>
-     
-     
-      <!-- Hamburger Icon for Mobile -->
-      <div class="lg:hidden">
-        <button id="toggle-menu" class="text-black focus:outline-none">
-          <span class="material-symbols-outlined text-3xl font-semibold">
-            menu
-            </span>
-        </button>
-      </div>
-    </div>
-  
-      <!-- Navigation Links (Hidden by Default) -->
-      <div id="hidden-links" class="lg:hidden flex flex-col  items-center text-center  space-y-2 mt-3 font-semibold">
-        <a href="#" class="text-cyan-500 text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">Home</a>
-        <a href="#" class="text-cyan-500 text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">About</a>
-        <a href="#" class="text-cyan-500 text-2xl hover:border-2 hover:border-gray-400 hover:scale-105 duration-200 hover:ease-in-out">Contact</a>
-        <div class="group relative">
+// Mobile menu search functionality
+const mobileSearch = document.getElementById("searchMobile");
+const mobileBtn = document.getElementById("btnMobile");
+const mobileTotalFoods = document.getElementById("totalfoods");
 
-        </div>
-  
-<!-- search bar  -->
-<div id="input-Search" class="flex flex-col md:hidden mt-5 mb-5 space-y-5 space-x-2">
-  <label for="searchMobile"></label>
-  <input type="search" class="pl-1 w-[220px] text-xl rounded shadow-md shadow-slate-600 hover:scale-105 hover:duration-300 capitalize" placeholder="Search Here" name="searchMobile" id="searchMobile" />
-  <button id="btnMobile" class="btn">
-      <span class="material-symbols-outlined" style="font-size: 30px;">
-          search
-      </span>
-  </button>
-</div>
-    
-      </div>
-    </div>
-</nav>
+mobileBtn.addEventListener("click", () => {
+    const searchText = mobileSearch.value.trim();
+    getFoodList(searchText, mobileTotalFoods);
+});
 
+function getFoodList(searchText, targetElement) {
+    fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchText}`)
+        .then(response => response.json())
+        .then(data => {
+            let html = "";
+            if (data.meals) {
+                data.meals.forEach((meal) => {
+                    // Get ingredients for each meal
+                    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
+                        .then(response => response.json())
+                        .then(mealData => {
+                            const ingredients = [];
+                            for (let i = 1; i <= 20; i++) {
+                                const ingredient = mealData.meals[0][`strIngredient${i}`];
+                                const measure = mealData.meals[0][`strMeasure${i}`];
+                                if (ingredient && ingredient.trim() !== "") {
+                                    ingredients.push(`${ingredient} - ${measure}`);
+                                }
+                            }
 
-<!-- <script src="/js/food.js"></script> -->
-</body>
-</html>
+                            // Create food card with ingredients
+                            html += `
+                                <div class="foodcard">
+                                    <img src="${meal.strMealThumb}" alt="" class="foods">
+                                    <h2 id="mealTitle">${meal.strMeal}</h2>
+                                    <h3>Ingredients:</h3>
+                                    <ul>${ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}</ul>
+                                    <button class="order">Order</button>
+                                </div>`;
+
+                            targetElement.classList.remove("notFound");
+                            targetElement.innerHTML = html;
+                        });
+                });
+            } else {
+                html = "Sorry, we didn't find any meal!";
+                targetElement.classList.add("notFound");
+                targetElement.innerHTML = html;
+            }
+        });
+}

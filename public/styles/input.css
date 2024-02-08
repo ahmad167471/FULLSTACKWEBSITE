@@ -30,9 +30,14 @@
 /* service section  */
 /* food items  */
 
+
+
+
 #mealTitle{
-  font-size: 30px;
+  font-size: 36px;
 text-align: center;
+font-weight:600;
+margin: 10px 0px 10px 0px;
 }
 .order{
   height: 50px;
@@ -41,4 +46,80 @@ text-align: center;
   border-radius: 10px;
   text-align: center;
   margin: 0 auto;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+#menucard {
+  height: 100vh;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.foodcard {
+  position: relative;
+  z-index: 1; /* Ensure the food card stays above the overlay */
+}
+
+body.overlay-active {
+  overflow: hidden; /* Disable scrolling when the overlay is active */
+}
+#ingidButtoin{
+min-width: 100%;
+height: 100px;
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+
+}
+.toggleIngredientsBtn{
+color: black;
+font-size: 30px;
+font-family: cursive;
+font-weight: bold;
+cursor: pointer;
+border: 2px solid black;
+text-align: center;
+
+/* margin: 5px 30px 5px 0; */
+}
+.ingredientslist{
+text-align: center;
+color: red;
+font-size: 40px;
+}
+.listitems{
+color: orange;
+text-align: center;
+font-size: 20px;
+}
+
+#closeIngdBtn{
+display: flex;
+justify-content: center;
+align-items: center;
+border: 2px solid orange;
+color: white;
+text-align: center;
+margin: 10px 0px 5px 0px;
+}
+.closeIngredientsBtn{
+font-size: 40px;
+cursor: pointer;
+scale: 1.05 ;
+transition: 2s ease-in-out;
 }
