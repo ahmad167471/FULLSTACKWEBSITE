@@ -9,14 +9,16 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/",(req,res)=>{
-res.render("main.ejs")
+res.render("login.ejs")
 });
-
-app.get("/Home",(req,res)=>{
+app.get("/home",(req,res)=>{
+    res.render("login.ejs")
+})
+app.post("/submit",(req,res)=>{
     res.render("main.ejs")
 })
 
-app.get("/Login",(req,res)=>{
+app.get("/login",(req,res)=>{
     res.render("login.ejs")
 })
 app.get("/button",(req,res)=>{
@@ -27,7 +29,11 @@ app.get("/service",(req,res)=>{
 })
 app.get("/contact",(req,res)=>{
     res.render("login.ejs")
+});
+app.get("/blogs",(req,res)=>{
+    res.render("main.ejs")
 })
+
 // In your server file
 app.listen(port,()=>{
     console.log(`server is running on ${port}`)
